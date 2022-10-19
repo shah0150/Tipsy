@@ -51,13 +51,12 @@ class MainActivity : AppCompatActivity() {
                 Log.i(TAG, "afterTextChanged $p0")
                 computeTipAndTotal()
             }
-
         })
-
     }
 
     private fun updateTipEmoji(tipPercent: Int) {
         val tipsyDescription = when(tipPercent){
+            // Emojis available from: https://emojipedia.org/
             in 0..9 -> "\uD83D\uDE44"
             in 10..14 -> "\uD83D\uDE1F"
             in 15..25 -> "\uD83D\uDE0A"
@@ -72,7 +71,6 @@ class MainActivity : AppCompatActivity() {
             totalTipsyAmount.text = ""
             return
         }
-
         // 1. Get the value of the Base and Tip Percent
         val baseAmount = etBaseAmount.text.toString().toDouble()
         val tipPercent = seekTipsy.progress
@@ -82,6 +80,5 @@ class MainActivity : AppCompatActivity() {
         // 3. Update the UI to show the value
         tipsyTipAmount.text = "%.2f".format(tipAmount)
         totalTipsyAmount.text = "%.2f".format(totalAmount)
-
     }
 }
